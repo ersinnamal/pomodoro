@@ -1,0 +1,11 @@
+.header {
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 3.6rem;
+  font-weight: 600;
+  color: #fff5f5;
+}
