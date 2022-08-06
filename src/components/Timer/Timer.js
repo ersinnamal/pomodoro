@@ -70,9 +70,11 @@ const Timer = () => {
           }}
         ></div>
       </div>
-      <button onClick={clickHandler}>
-        {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
-      </button>
+      <div className={classes.controls}>
+        <button onClick={clickHandler}>
+          {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.item {
+  background-color: var(--red-4);
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  color: var(--red-0);
+}
+
+.icon {
+  width: 20px;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}

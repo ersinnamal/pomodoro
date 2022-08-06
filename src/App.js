@@ -1,4 +1,5 @@
 import MainHeader from "./components/MainHeader/MainHeader";
+import PomodoroList from "./components/PomodoroList/PomodoroList";
 import Timer from "./components/Timer/Timer";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <MainHeader />
       <main>
         <Timer />
+        <PomodoroList />
       </main>
     </>
   );
