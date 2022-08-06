@@ -1,3 +1,9 @@
+:root {
+  --main-color: #e03131;
+  --main-color-dark: #c92a2a;
+  --main-color-light: #f03e3e;
+}
+
 * {
   box-sizing: border-box;
   margin: none;
