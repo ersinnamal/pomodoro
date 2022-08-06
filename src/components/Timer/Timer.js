@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./Timer.module.css";
-
-const POMODORO_MINS = 0.2;
-const BREAK_MINS = 0.2;
+import { useContext } from "react";
+import { Context } from "../../store/context";
 
 const formatSeconds = (totalSeconds) => {
   const minutes = Math.trunc(totalSeconds / 60);
@@ -14,7 +13,9 @@ const formatSeconds = (totalSeconds) => {
 };
 
 const Timer = () => {
-  const [targetSeconds, setTargetSeconds] = useState(POMODORO_MINS * 60);
+  const { breakMinutes, sessionMinutes, addPomodoro } = useContext(Context);
+
+  const [targetSeconds, setTargetSeconds] = useState(sessionMinutes);
   const [seconds, setSeconds] = useState(0);
   const [timer, setTimer] = useState();
   const [isBreak, setIsBreak] = useState(false);
@@ -32,9 +33,9 @@ const Timer = () => {
 
   useEffect(() => {
     if (isBreak) {
-      setTargetSeconds(BREAK_MINS * 60);
+      setTargetSeconds(breakMinutes * 60);
     } else {
-      setTargetSeconds(POMODORO_MINS * 60);
+      setTargetSeconds(sessionMinutes * 60);
     }
   }, [isBreak]);
 

@@ -8,8 +8,8 @@ export const Context = createContext({
 });
 
 const ContextProvider = (props) => {
-  const [breakMinutes, setBreakMinutes] = useState(5);
-  const [sessionMinutes, setSessionMinutes] = useState(25);
+  const [breakMinutes, setBreakMinutes] = useState(0.2);
+  const [sessionMinutes, setSessionMinutes] = useState(0.1);
   const [pomodoros, setPomodoros] = useState([]);
 
   const addPomodoro = (pomodoro) => {
