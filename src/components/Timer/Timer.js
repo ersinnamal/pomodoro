@@ -15,29 +15,31 @@ const formatSeconds = (totalSeconds) => {
 };
 
 const Timer = () => {
-  const { breakMinutes, sessionMinutes, addPomodoro } = useContext(Context);
+  const context = useContext(Context);
   const [seconds, setSeconds] = useState(0);
   const [timer, setTimer] = useState();
   const [isBreak, setIsBreak] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
 
-  const [rangeProps, { setValue: setRangeValue }] = useInput(sessionMinutes);
+  const [rangeProps, { setValue: setRangeValue }] = useInput(
+    context.sessionMinutes
+  );
   const { value: minuteInputValue } = rangeProps;
 
   useEffect(() => {
     if (seconds === minuteInputValue * 60) {
-      if (!isBreak) addPomodoro({ minutes: +minuteInputValue });
+      if (!isBreak) context.addPomodoro({ minutes: +minuteInputValue });
       clearInterval(timer);
       setTimer(null);
       setIsBreak((prevIsBreak) => !prevIsBreak);
       setIsFinished(true);
       setSeconds(0);
     }
-  }, [minuteInputValue, seconds, timer]);
+  }, [minuteInputValue, seconds, timer, context, isBreak]);
 
   useEffect(() => {
-    setRangeValue(isBreak ? breakMinutes : sessionMinutes);
-  }, [isBreak]);
+    setRangeValue(isBreak ? context.breakMinutes : context.sessionMinutes);
+  }, [isBreak, context.breakMinutes, context.sessionMinutes, setRangeValue]);
 
   const clickHandler = () => {
     if (timer) {
@@ -45,6 +47,10 @@ const Timer = () => {
       setTimer(null);
       return;
     }
+    if (isBreak && context.breakMinutes !== minuteInputValue)
+      context.setBreakMinutes(minuteInputValue);
+    if (!isBreak && context.sessionMinutes !== minuteInputValue)
+      context.setSessionMinutes(minuteInputValue);
     setIsFinished(false);
     setSeconds((prevSeconds) => prevSeconds + 1);
     setTimer(
