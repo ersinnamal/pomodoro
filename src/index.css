@@ -18,6 +18,10 @@ body {
   font-size: 1.6rem;
 }
 
+main {
+  padding: 3.6rem;
+}
+
 a {
   text-decoration: none;
   color: inherit;
