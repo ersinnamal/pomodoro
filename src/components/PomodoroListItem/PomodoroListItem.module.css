@@ -3,6 +3,7 @@
   border-radius: 1rem;
   padding: 0.4rem 0.8rem;
   color: var(--red-0);
+  animation: new-item 1000ms;
 }
 
 .icon {
@@ -13,4 +14,15 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+@keyframes new-item {
+  0% {
+    opacity: 0%;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0%);
+  }
 }
