@@ -23,6 +23,9 @@ const Timer = () => {
 
   useEffect(() => {
     if (seconds === targetSeconds) {
+      if (!isBreak) {
+        addPomodoro({ minutes: targetSeconds / 60 });
+      }
       clearInterval(timer);
       setTimer(null);
       setIsBreak((prevIsBreak) => !prevIsBreak);

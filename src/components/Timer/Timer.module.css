@@ -1,9 +1,9 @@
 .container {
-  background-color: var(--main-color);
+  background-color: var(--red-4);
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff5f5;
+  color: var(--red-0);
   border-radius: 1rem;
   padding: 2.4rem 0;
   gap: 1.2rem;
@@ -15,14 +15,14 @@
 
 .bar {
   height: 24px;
-  background-color: #fff5f5;
+  background-color: var(--red-0);
   width: 90%;
   border-radius: 1rem;
   padding: 1px;
 }
 
 .fill {
-  background-color: #ff6b6b;
+  background-color: var(--red-2);
   height: 100%;
   border-radius: 1rem;
 }
