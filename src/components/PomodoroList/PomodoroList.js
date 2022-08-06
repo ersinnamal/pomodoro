@@ -5,7 +5,6 @@ import classes from "./PomodoroList.module.css";
 
 const PomodoroList = () => {
   const { pomodoros } = useContext(Context);
-
   return (
     <ul className={classes.list}>
       {pomodoros.map((pomo) => (

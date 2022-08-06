@@ -14,8 +14,8 @@ const ContextProvider = (props) => {
 
   const addPomodoro = (pomodoro) => {
     setPomodoros((prev) => [
+      { ...pomodoro, id: pomodoros.length !== 0 ? pomodoros[0].id + 1 : 1 },
       ...prev,
-      { ...pomodoro, id: pomodoros.length !== 0 ? pomodoros.at(-1).id + 1 : 1 },
     ]);
   };
 
