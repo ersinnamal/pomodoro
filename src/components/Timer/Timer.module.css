@@ -20,7 +20,9 @@
 }
 
 .time {
-  font-size: 4.8rem;
+  font-size: 5.6rem;
+  font-weight: 600;
+  font-family: "Quicksand";
 }
 
 .bar {
