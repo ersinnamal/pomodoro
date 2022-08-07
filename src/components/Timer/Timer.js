@@ -6,6 +6,7 @@ import Range from "../UI/Range/Range";
 import useInput from "../../hooks/useInput";
 import Input from "../UI/Input/Input";
 import Select from "../UI/Select/Select";
+import Button from "../UI/Button/Button";
 
 const formatSeconds = (totalSeconds) => {
   const minutes = Math.trunc(totalSeconds / 60);
@@ -18,6 +19,7 @@ const formatSeconds = (totalSeconds) => {
 
 const Timer = () => {
   const context = useContext(Context);
+
   const [seconds, setSeconds] = useState(0);
   const [timer, setTimer] = useState();
   const [isBreak, setIsBreak] = useState(false);
@@ -28,6 +30,7 @@ const Timer = () => {
   );
   const [titleProps] = useInput();
   const [colorProps] = useInput("red");
+
   const { value: minuteInputValue } = rangeProps;
   const { value: colorInputValue } = colorProps;
 
@@ -99,9 +102,9 @@ const Timer = () => {
           label="duration"
         />
         <Select {...colorProps} options={["red", "blue"]} label="color" />
-        <button onClick={clickHandler}>
+        <Button onClick={clickHandler} color={colorProps.value}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
-        </button>
+        </Button>
       </div>
     </div>
   );
