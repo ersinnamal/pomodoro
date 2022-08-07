@@ -5,6 +5,7 @@
   border-radius: 1rem;
   padding: 2.4rem 0;
   gap: 1.2rem;
+  transition: all 150ms;
 }
 
 .container--red {
@@ -26,10 +27,12 @@
 }
 
 .bar {
-  height: 24px;
+  height: 36px;
   width: 90%;
   border-radius: 1rem;
   padding: 1px;
+  transition: all 150ms;
+  overflow: hidden;
 }
 
 .container--red .bar {
@@ -43,6 +46,7 @@
 .fill {
   height: 100%;
   border-radius: 1rem;
+  transition: background-color 150ms;
 }
 
 .container--red .fill {
@@ -86,9 +90,5 @@
   }
   .controls button:last-child {
     grid-column: span 2;
-  }
-
-  .bar {
-    height: 36px;
   }
 }

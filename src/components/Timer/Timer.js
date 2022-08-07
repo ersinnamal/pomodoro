@@ -35,7 +35,7 @@ const Timer = () => {
   const { value: colorInputValue } = colorProps;
 
   useEffect(() => {
-    if (seconds === minuteInputValue * 60) {
+    if (seconds >= minuteInputValue * 60) {
       if (!isBreak)
         context.addPomodoro({
           title: titleProps.value,
