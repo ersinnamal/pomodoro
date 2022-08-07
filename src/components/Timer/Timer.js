@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 import Range from "../UI/Range/Range";
 import useInput from "../../hooks/useInput";
+import Input from "../UI/Input/Input";
 
 const formatSeconds = (totalSeconds) => {
   const minutes = Math.trunc(totalSeconds / 60);
@@ -24,11 +25,16 @@ const Timer = () => {
   const [rangeProps, { setValue: setRangeValue }] = useInput(
     context.sessionMinutes
   );
+  const [titleProps] = useInput();
   const { value: minuteInputValue } = rangeProps;
 
   useEffect(() => {
     if (seconds === minuteInputValue * 60) {
-      if (!isBreak) context.addPomodoro({ minutes: +minuteInputValue });
+      if (!isBreak)
+        context.addPomodoro({
+          title: titleProps.value,
+          minutes: +minuteInputValue,
+        });
       clearInterval(timer);
       setTimer(null);
       setIsBreak((prevIsBreak) => !prevIsBreak);
@@ -76,6 +82,7 @@ const Timer = () => {
         ></div>
       </div>
       <div className={classes.controls}>
+        <Input {...titleProps} />
         <Range {...rangeProps} min="1" max={isBreak ? 45 : 90} />
         <button onClick={clickHandler}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}

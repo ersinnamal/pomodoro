@@ -26,3 +26,8 @@
   height: 100%;
   border-radius: 1rem;
 }
+
+.controls {
+  display: flex;
+  gap: 3.2rem;
+}

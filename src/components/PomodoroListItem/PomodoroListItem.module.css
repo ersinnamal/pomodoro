@@ -1,7 +1,9 @@
 .item {
+  display: flex;
+  justify-content: space-between;
   background-color: var(--red-4);
   border-radius: 1rem;
-  padding: 0.4rem 0.8rem;
+  padding: 0.8rem 1.2rem;
   color: var(--red-0);
   animation: new-item 1000ms;
 }
