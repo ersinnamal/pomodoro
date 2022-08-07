@@ -5,11 +5,24 @@
 }
 
 .select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: white;
   border-radius: 1rem;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.2rem 0.4rem 0.8rem;
   font-size: 1.4rem;
   width: 100%;
+}
+
+.select svg {
+  transition: 250ms;
+  stroke: #868e96;
+  width: 18px;
+}
+
+.select--open svg {
+  transform: rotateX(180deg);
 }
 
 .select--open {
