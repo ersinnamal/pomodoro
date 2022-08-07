@@ -1,7 +1,13 @@
 .range {
   border-radius: 1rem;
   overflow: hidden;
+}
+.range--red {
   background-color: var(--red-0);
+}
+
+.range--blue {
+  background-color: var(--blue-0);
 }
 
 .range::-moz-range-thumb {
@@ -9,8 +15,15 @@
 }
 
 .range::-moz-range-progress {
-  background-color: var(--red-2);
   height: 100%;
+}
+
+.range--red::-moz-range-progress {
+  background-color: var(--red-2);
+}
+
+.range--blue::-moz-range-progress {
+  background-color: var(--blue-2);
 }
 
 .range::-moz-range-track {

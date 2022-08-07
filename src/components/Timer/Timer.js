@@ -16,6 +16,9 @@ const formatSeconds = (totalSeconds) => {
 };
 
 const Timer = () => {
+  // temp
+  const color = "blue";
+
   const context = useContext(Context);
   const [seconds, setSeconds] = useState(0);
   const [timer, setTimer] = useState();
@@ -34,6 +37,7 @@ const Timer = () => {
         context.addPomodoro({
           title: titleProps.value,
           minutes: +minuteInputValue,
+          color,
         });
       clearInterval(timer);
       setTimer(null);
@@ -67,7 +71,7 @@ const Timer = () => {
   };
 
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${classes["container--" + color]}`}>
       <div className={classes.time}>
         {formatSeconds(minuteInputValue * 60 - seconds)}
       </div>
@@ -83,7 +87,7 @@ const Timer = () => {
       </div>
       <div className={classes.controls}>
         <Input {...titleProps} />
-        <Range {...rangeProps} min="1" max={isBreak ? 45 : 90} />
+        <Range {...rangeProps} color={color} min="1" max={isBreak ? 45 : 90} />
         <button onClick={clickHandler}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
         </button>

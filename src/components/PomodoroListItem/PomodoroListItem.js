@@ -2,7 +2,9 @@ import classes from "./PomodoroListItem.module.css";
 
 const PomodoroListItem = (props) => {
   return (
-    <div className={classes.item}>
+    <div
+      className={`${classes.item} ${classes["item--" + props.pomodoro.color]}`}
+    >
       <div className={classes.title}>{props.pomodoro.title}</div>
       <div className={classes.duration}>
         <svg

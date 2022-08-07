@@ -1,12 +1,20 @@
 .container {
-  background-color: var(--red-4);
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--red-0);
   border-radius: 1rem;
   padding: 2.4rem 0;
   gap: 1.2rem;
+}
+
+.container--red {
+  color: var(--red-0);
+  background-color: var(--red-4);
+}
+
+.container--blue {
+  color: var(--blue-0);
+  background-color: var(--blue-4);
 }
 
 .time {
@@ -15,16 +23,30 @@
 
 .bar {
   height: 24px;
-  background-color: var(--red-0);
   width: 90%;
   border-radius: 1rem;
   padding: 1px;
 }
 
+.container--red .bar {
+  background-color: var(--red-0);
+}
+
+.container--blue .bar {
+  background-color: var(--blue-0);
+}
+
 .fill {
-  background-color: var(--red-2);
   height: 100%;
   border-radius: 1rem;
+}
+
+.container--red .fill {
+  background-color: var(--red-2);
+}
+
+.container--blue .fill {
+  background-color: var(--blue-2);
 }
 
 .controls {
