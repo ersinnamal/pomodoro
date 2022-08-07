@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const Context = createContext({
   breakMinutes: 0,
@@ -8,9 +8,21 @@ export const Context = createContext({
 });
 
 const ContextProvider = (props) => {
-  const [breakMinutes, setBreakMinutes] = useState(1);
-  const [sessionMinutes, setSessionMinutes] = useState(1);
-  const [pomodoros, setPomodoros] = useState([]);
+  const [breakMinutes, setBreakMinutes] = useState(
+    localStorage.getItem("breakMinutes") ?? 1
+  );
+  const [sessionMinutes, setSessionMinutes] = useState(
+    localStorage.getItem("sessionMinutes") ?? 1
+  );
+  const [pomodoros, setPomodoros] = useState(
+    JSON.parse(localStorage.getItem("pomodoros")) ?? []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("pomodoros", JSON.stringify(pomodoros));
+    localStorage.setItem("breakMinutes", breakMinutes);
+    localStorage.setItem("sessionMinutes", sessionMinutes);
+  }, [breakMinutes, sessionMinutes, pomodoros]);
 
   const addPomodoro = (pomodoro) => {
     setPomodoros((prev) => [
