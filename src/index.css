@@ -46,3 +46,9 @@ ul,
 ol {
   list-style: none;
 }
+
+@media (max-width: 800px) {
+  main {
+    padding: 2.4rem 1.2rem;
+  }
+}

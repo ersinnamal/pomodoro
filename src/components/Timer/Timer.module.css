@@ -57,3 +57,38 @@
   display: flex;
   gap: 3.2rem;
 }
+
+@media (max-width: 800px) {
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 2.4rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .controls {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.2rem;
+  }
+
+  .controls div:first-child {
+    grid-column: span 2;
+  }
+  .controls button:last-child {
+    grid-column: span 2;
+  }
+
+  .bar {
+    height: 36px;
+  }
+}
