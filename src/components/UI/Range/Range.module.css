@@ -1,6 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 .range {
   border-radius: 1rem;
   overflow: hidden;
+  height: 100%;
 }
 .range--red {
   background-color: var(--red-0);

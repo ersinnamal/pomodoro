@@ -15,7 +15,7 @@ const Select = (props) => {
 
   return (
     <div className={classes.container}>
-      {props.label && <label>{props.label}</label>}
+      {props.label && <label className={classes.label}>{props.label}</label>}
       <div
         onClick={showOptionsHandler}
         className={`${classes.select} ${

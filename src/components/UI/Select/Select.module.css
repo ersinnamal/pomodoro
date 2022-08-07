@@ -2,6 +2,9 @@
   position: relative;
   width: 6rem;
   color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .select {
@@ -32,7 +35,8 @@
 
 .options {
   position: absolute;
-  background-color: white;
+  top: 99%;
+  background-color: #dee2e6;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   overflow: hidden;
@@ -44,6 +48,10 @@
 }
 
 .option:hover {
-  background-color: red;
+  background-color: #e9ecef;
   cursor: pointer;
+}
+
+.label {
+  color: white;
 }
