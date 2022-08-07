@@ -5,6 +5,7 @@ export const Context = createContext({
   sessionMinutes: 0,
   pomodoros: [],
   addPomodoro: (pomodoro) => {},
+  deletePomodoro: (pomodoro) => {},
 });
 
 const ContextProvider = (props) => {
@@ -31,6 +32,10 @@ const ContextProvider = (props) => {
     ]);
   };
 
+  const deletePomodoro = (pomodoroId) => {
+    setPomodoros((prev) => prev.filter((pomo) => pomo.id !== pomodoroId));
+  };
+
   return (
     <Context.Provider
       value={{
@@ -38,6 +43,7 @@ const ContextProvider = (props) => {
         sessionMinutes,
         pomodoros,
         addPomodoro,
+        deletePomodoro,
         setBreakMinutes,
         setSessionMinutes,
       }}
