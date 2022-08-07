@@ -5,6 +5,7 @@ import { Context } from "../../store/context";
 import Range from "../UI/Range/Range";
 import useInput from "../../hooks/useInput";
 import Input from "../UI/Input/Input";
+import Select from "../UI/Select/Select";
 
 const formatSeconds = (totalSeconds) => {
   const minutes = Math.trunc(totalSeconds / 60);
@@ -16,9 +17,6 @@ const formatSeconds = (totalSeconds) => {
 };
 
 const Timer = () => {
-  // temp
-  const color = "red";
-
   const context = useContext(Context);
   const [seconds, setSeconds] = useState(0);
   const [timer, setTimer] = useState();
@@ -29,7 +27,9 @@ const Timer = () => {
     context.sessionMinutes
   );
   const [titleProps] = useInput();
+  const [colorProps] = useInput("red");
   const { value: minuteInputValue } = rangeProps;
+  const { value: colorInputValue } = colorProps;
 
   useEffect(() => {
     if (seconds === minuteInputValue * 60) {
@@ -37,7 +37,7 @@ const Timer = () => {
         context.addPomodoro({
           title: titleProps.value,
           minutes: +minuteInputValue,
-          color,
+          color: colorInputValue,
         });
       clearInterval(timer);
       setTimer(null);
@@ -71,7 +71,11 @@ const Timer = () => {
   };
 
   return (
-    <div className={`${classes.container} ${classes["container--" + color]}`}>
+    <div
+      className={`${classes.container} ${
+        classes["container--" + colorInputValue]
+      }`}
+    >
       <div className={classes.time}>
         {formatSeconds(minuteInputValue * 60 - seconds)}
       </div>
@@ -87,7 +91,13 @@ const Timer = () => {
       </div>
       <div className={classes.controls}>
         <Input {...titleProps} />
-        <Range {...rangeProps} color={color} min="1" max={isBreak ? 45 : 90} />
+        <Range
+          {...rangeProps}
+          color={colorInputValue}
+          min="1"
+          max={isBreak ? 45 : 90}
+        />
+        <Select {...colorProps} options={["red", "blue"]} />
         <button onClick={clickHandler}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
         </button>

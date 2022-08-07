@@ -1,0 +1,36 @@
+.container {
+  position: relative;
+  width: 6rem;
+  color: black;
+}
+
+.select {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.select--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.options {
+  position: absolute;
+  background-color: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.option {
+  padding: 0.4rem 0.8rem;
+}
+
+.option:hover {
+  background-color: red;
+  cursor: pointer;
+}
