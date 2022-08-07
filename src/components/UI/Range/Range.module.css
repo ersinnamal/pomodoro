@@ -1,6 +1,7 @@
 .range {
   border-radius: 1rem;
   overflow: hidden;
+  background-color: var(--red-0);
 }
 
 .range::-moz-range-thumb {
