@@ -17,7 +17,7 @@ const formatSeconds = (totalSeconds) => {
 
 const Timer = () => {
   // temp
-  const color = "blue";
+  const color = "red";
 
   const context = useContext(Context);
   const [seconds, setSeconds] = useState(0);

@@ -4,11 +4,13 @@
   --red-2: #ff8787;
   --red-3: #fa5252;
   --red-4: #e03131;
+  --red-shadow: #e0313142;
   --blue-0: #e7f5ff;
   --blue-1: #a5d8ff;
   --blue-2: #4dabf7;
   --blue-3: #228be6;
   --blue-4: #1971c2;
+  --blue-shadow: #1970c256;
 }
 
 * {

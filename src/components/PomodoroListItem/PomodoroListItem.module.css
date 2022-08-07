@@ -9,11 +9,13 @@
 .item--red {
   background-color: var(--red-4);
   color: var(--red-0);
+  box-shadow: 0 0 5px 2px var(--red-shadow);
 }
 
 .item--blue {
   background-color: var(--blue-4);
   color: var(--blue-0);
+  box-shadow: 0 0 5px 2px var(--blue-shadow);
 }
 
 .icon {
