@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import classes from "./Timer.module.css";
-import { useContext } from "react";
 import { Context } from "../../store/context";
 import Range from "../UI/Range/Range";
 import useInput from "../../hooks/useInput";
