@@ -29,6 +29,11 @@
   gap: 2.4rem;
 }
 
+.right--buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
 .button {
   border: none;
   background-color: transparent;

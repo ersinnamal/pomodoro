@@ -3,10 +3,14 @@
   width: 6rem;
   color: black;
   display: flex;
-  flex-direction: column;
   gap: 0.4rem;
+  align-items: center;
 }
 
+.vertical {
+  flex-direction: column;
+  align-items: start;
+}
 .select {
   display: flex;
   justify-content: space-between;

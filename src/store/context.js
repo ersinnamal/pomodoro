@@ -36,6 +36,16 @@ const ContextProvider = (props) => {
     setPomodoros((prev) => prev.filter((pomo) => pomo.id !== pomodoroId));
   };
 
+  const editPomodoro = (pomodoroId, editedPomodoro) => {
+    console.log(editedPomodoro);
+    setPomodoros((prev) => {
+      const newPomodoros = [...prev];
+      const index = newPomodoros.findIndex((p) => p.id === pomodoroId);
+      newPomodoros[index] = { ...newPomodoros[index], ...editedPomodoro };
+      return newPomodoros;
+    });
+  };
+
   return (
     <Context.Provider
       value={{
@@ -44,6 +54,7 @@ const ContextProvider = (props) => {
         pomodoros,
         addPomodoro,
         deletePomodoro,
+        editPomodoro,
         setBreakMinutes,
         setSessionMinutes,
       }}

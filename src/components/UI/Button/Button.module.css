@@ -3,6 +3,9 @@
   font-weight: 600;
   transition: all 150ms;
   padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button--red {

@@ -92,7 +92,7 @@ const Timer = () => {
         ></div>
       </div>
       <div className={classes.controls}>
-        <Input label="title" {...titleProps} />
+        <Input vertical={true} label="title" {...titleProps} />
         <Range
           {...rangeProps}
           color={colorInputValue}
@@ -100,7 +100,12 @@ const Timer = () => {
           max={isBreak ? 45 : 90}
           label="duration"
         />
-        <Select {...colorProps} options={["red", "blue"]} label="color" />
+        <Select
+          vertical={true}
+          {...colorProps}
+          options={["red", "blue"]}
+          label="color"
+        />
         <Button onClick={clickHandler} color={colorProps.value}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
         </Button>
