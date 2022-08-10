@@ -4,9 +4,30 @@ export const Context = createContext({
   breakMinutes: 0,
   sessionMinutes: 0,
   pomodoros: [],
+  categoris: [],
   addPomodoro: (pomodoro) => {},
   deletePomodoro: (pomodoro) => {},
 });
+
+const addItem = (setItems, item) => {
+  setItems((prev) => [
+    { ...item, id: prev.length !== 0 ? prev[0].id + 1 : 1 },
+    ...prev,
+  ]);
+};
+
+const deleteItem = (setItems, id) => {
+  setItems((prev) => prev.filter((item) => item.id !== id));
+};
+
+const editItem = (setItems, id, editedItem) => {
+  setItems((prev) => {
+    const newItems = [...prev];
+    const index = newItems.findIndex((item) => item.id === id);
+    newItems[index] = { ...newItems[index], ...editedItem };
+    return newItems;
+  });
+};
 
 const ContextProvider = (props) => {
   const [breakMinutes, setBreakMinutes] = useState(
@@ -18,33 +39,23 @@ const ContextProvider = (props) => {
   const [pomodoros, setPomodoros] = useState(
     JSON.parse(localStorage.getItem("pomodoros")) ?? []
   );
+  const [categories, setCategories] = useState(
+    JSON.parse(localStorage.getItem("categories")) ?? []
+  );
 
   useEffect(() => {
     localStorage.setItem("pomodoros", JSON.stringify(pomodoros));
     localStorage.setItem("breakMinutes", breakMinutes);
     localStorage.setItem("sessionMinutes", sessionMinutes);
-  }, [breakMinutes, sessionMinutes, pomodoros]);
+    localStorage.setItem("categories", JSON.stringify(categories));
+  }, [breakMinutes, sessionMinutes, pomodoros, categories]);
 
-  const addPomodoro = (pomodoro) => {
-    setPomodoros((prev) => [
-      { ...pomodoro, id: pomodoros.length !== 0 ? pomodoros[0].id + 1 : 1 },
-      ...prev,
-    ]);
-  };
-
-  const deletePomodoro = (pomodoroId) => {
-    setPomodoros((prev) => prev.filter((pomo) => pomo.id !== pomodoroId));
-  };
-
-  const editPomodoro = (pomodoroId, editedPomodoro) => {
-    console.log(editedPomodoro);
-    setPomodoros((prev) => {
-      const newPomodoros = [...prev];
-      const index = newPomodoros.findIndex((p) => p.id === pomodoroId);
-      newPomodoros[index] = { ...newPomodoros[index], ...editedPomodoro };
-      return newPomodoros;
-    });
-  };
+  const addPomodoro = addItem.bind(null, setPomodoros);
+  const addCategory = addItem.bind(null, setCategories);
+  const deletePomodoro = deleteItem.bind(null, setPomodoros);
+  const deleteCategory = deleteItem.bind(null, setCategories);
+  const editPomodoro = editItem.bind(null, setPomodoros);
+  const editCategory = editItem.bind(null, setCategories);
 
   return (
     <Context.Provider
@@ -52,7 +63,9 @@ const ContextProvider = (props) => {
         breakMinutes,
         sessionMinutes,
         pomodoros,
+        categories,
         addPomodoro,
+        addCategory,
         deletePomodoro,
         editPomodoro,
         setBreakMinutes,
