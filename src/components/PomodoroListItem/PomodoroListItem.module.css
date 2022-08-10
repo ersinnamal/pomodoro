@@ -24,14 +24,14 @@
   gap: 0.4rem;
 }
 
-.right {
+.info {
   display: flex;
   gap: 2.4rem;
 }
 
-.right--buttons {
+.buttons {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
 
 .button {

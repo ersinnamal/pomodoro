@@ -19,3 +19,21 @@
   background-color: inherit;
   color: white;
 }
+
+@media (max-width: 500px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .inputs {
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .buttons {
+    grid-column: 2;
+    justify-self: end;
+    flex-direction: column;
+  }
+}

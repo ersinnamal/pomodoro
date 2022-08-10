@@ -18,27 +18,29 @@ const PomodoroListItem = (props) => {
     >
       {!isEdit && (
         <>
-          <TagIcon />
-          <div className={classes.group}>{props.pomodoro.title}</div>
-          <div className={classes.right}>
+          <div className={classes.info}>
             <div className={classes.group}>
               <ClockIcon />
-              {props.pomodoro.minutes} mins
+              {props.pomodoro.minutes} mins{" "}
             </div>
-            <div className={classes["right--buttons"]}>
-              <Button
-                color={props.pomodoro.color}
-                onClick={setIsEdit.bind(null, true)}
-              >
-                <PencilIcon />
-              </Button>
-              <Button
-                color={props.pomodoro.color}
-                onClick={deletePomodoro.bind(null, props.pomodoro.id)}
-              >
-                <TrashIcon />
-              </Button>
+            <div className={classes.group}>
+              <TagIcon />
+              {props.pomodoro.title}
             </div>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              color={props.pomodoro.color}
+              onClick={setIsEdit.bind(null, true)}
+            >
+              <PencilIcon />
+            </Button>
+            <Button
+              color={props.pomodoro.color}
+              onClick={deletePomodoro.bind(null, props.pomodoro.id)}
+            >
+              <TrashIcon />
+            </Button>
           </div>
         </>
       )}

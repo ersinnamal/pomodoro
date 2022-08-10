@@ -29,10 +29,10 @@ const EditPomodoro = (props) => {
         <Select {...colorInputProps} label="color" options={["red", "blue"]} />
       </div>
       <div className={classes.buttons}>
-        <Button color={props.pomodoro.color} coloronClick={saveHandler}>
+        <Button color={props.pomodoro.color} onClick={saveHandler}>
           <CheckIcon />
         </Button>
-        <Button color={props.pomodoro.color} coloronClick={saveHandler}>
+        <Button color={props.pomodoro.color} onClick={saveHandler}>
           <CancelIcon />
         </Button>
       </div>
