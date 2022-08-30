@@ -40,7 +40,9 @@ const ContextProvider = (props) => {
     JSON.parse(localStorage.getItem("pomodoros")) ?? []
   );
   const [categories, setCategories] = useState(
-    JSON.parse(localStorage.getItem("categories")) ?? []
+    JSON.parse(localStorage.getItem("categories")) ?? [
+      { id: 1, name: "Deneme", color: "red" },
+    ]
   );
 
   useEffect(() => {
@@ -67,7 +69,9 @@ const ContextProvider = (props) => {
         addPomodoro,
         addCategory,
         deletePomodoro,
+        deleteCategory,
         editPomodoro,
+        editCategory,
         setBreakMinutes,
         setSessionMinutes,
       }}

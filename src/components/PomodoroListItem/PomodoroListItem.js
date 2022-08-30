@@ -9,13 +9,15 @@ import TrashIcon from "../UI/Icons/TrashIcon";
 import classes from "./PomodoroListItem.module.css";
 
 const PomodoroListItem = (props) => {
-  const { deletePomodoro } = useContext(Context);
+  const { deletePomodoro, categories } = useContext(Context);
   const [isEdit, setIsEdit] = useState(false);
 
+  const { color } = categories.find(
+    (cat) => cat.name === props.pomodoro.category
+  );
+
   return (
-    <div
-      className={`${classes.item} ${classes["item--" + props.pomodoro.color]}`}
-    >
+    <div className={`${classes.item} ${classes["item--" + color]}`}>
       {!isEdit && (
         <>
           <div className={classes.info}>
@@ -29,14 +31,11 @@ const PomodoroListItem = (props) => {
             </div>
           </div>
           <div className={classes.buttons}>
-            <Button
-              color={props.pomodoro.color}
-              onClick={setIsEdit.bind(null, true)}
-            >
+            <Button color={color} onClick={setIsEdit.bind(null, true)}>
               <PencilIcon />
             </Button>
             <Button
-              color={props.pomodoro.color}
+              color={color}
               onClick={deletePomodoro.bind(null, props.pomodoro.id)}
             >
               <TrashIcon />

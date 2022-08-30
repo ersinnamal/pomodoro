@@ -28,10 +28,14 @@ const Timer = () => {
     context.sessionMinutes
   );
   const [titleProps] = useInput();
-  const [colorProps] = useInput("red");
+  const [categoryProps] = useInput("Deneme");
 
   const { value: minuteInputValue } = rangeProps;
-  const { value: colorInputValue } = colorProps;
+  const { value: categoryInputValue } = categoryProps;
+
+  const { color } = context.categories.find(
+    (cat) => cat.name === categoryInputValue
+  );
 
   useEffect(() => {
     if (seconds >= minuteInputValue * 60) {
@@ -39,7 +43,7 @@ const Timer = () => {
         context.addPomodoro({
           title: titleProps.value,
           minutes: +minuteInputValue,
-          color: colorInputValue,
+          category: categoryInputValue,
         });
       clearInterval(timer);
       setTimer(null);
@@ -73,11 +77,7 @@ const Timer = () => {
   };
 
   return (
-    <div
-      className={`${classes.container} ${
-        classes["container--" + colorInputValue]
-      }`}
-    >
+    <div className={`${classes.container} ${classes["container--" + color]}`}>
       <div className={classes.time}>
         {formatSeconds(minuteInputValue * 60 - seconds)}
       </div>
@@ -95,18 +95,18 @@ const Timer = () => {
         <Input vertical={true} label="title" {...titleProps} />
         <Range
           {...rangeProps}
-          color={colorInputValue}
+          color={color}
           min="1"
           max={isBreak ? 45 : 90}
           label="duration"
         />
         <Select
           vertical={true}
-          {...colorProps}
-          options={["red", "blue"]}
-          label="color"
+          {...categoryProps}
+          options={context.categories.map((cat) => cat.name)}
+          label="category"
         />
-        <Button onClick={clickHandler} color={colorProps.value}>
+        <Button onClick={clickHandler} color={color}>
           {timer ? "Stop" : "Start"} {isBreak ? "Break" : "Pomodoro"}
         </Button>
       </div>
