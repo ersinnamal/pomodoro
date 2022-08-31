@@ -4,7 +4,7 @@ export const Context = createContext({
   breakMinutes: 0,
   sessionMinutes: 0,
   pomodoros: [],
-  categoris: [],
+  categories: [],
   addPomodoro: (pomodoro) => {},
   deletePomodoro: (pomodoro) => {},
 });

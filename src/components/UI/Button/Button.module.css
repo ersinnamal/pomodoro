@@ -29,3 +29,14 @@
   background-color: var(--blue-3);
   color: var(--blue-0);
 }
+
+.button--grey {
+  background-color: var(--grey-2);
+  color: var(--grey-4);
+  border: 1px solid var(--grey-0);
+}
+
+.button--grey:hover {
+  background-color: var(--grey-3);
+  color: var(--grey-0);
+}

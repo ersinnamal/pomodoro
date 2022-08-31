@@ -11,6 +11,11 @@
   --blue-3: #228be6;
   --blue-4: #1971c2;
   --blue-shadow: #1970c231;
+  --grey-0: #f8f9fa;
+  --grey-1: #e9ecef;
+  --grey-2: #ced4da;
+  --grey-3: #868e96;
+  --grey-4: #343a40;
 }
 
 * {
