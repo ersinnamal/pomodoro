@@ -8,16 +8,15 @@ import Select from "../UI/Select/Select";
 import CheckIcon from "../UI/Icons/CheckIcon";
 import CancelIcon from "../UI/Icons/CancelIcon";
 
-const CategoryList = () => {
+const CategoryList = (props) => {
   const { categories, addCategory } = useContext(Context);
-  const [selectedCategory, setSelectedCategory] = useState();
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [newCategoryNameInputHook] = useInput("New Category");
   const [colorsInputHook] = useInput("red");
 
   const toggleCategorySelection = (catId) => {
-    if (selectedCategory === catId) return setSelectedCategory(null);
-    setSelectedCategory(catId);
+    if (props.currentCategory === catId) return props.onSelect(null);
+    props.onSelect(catId);
   };
 
   const submitForm = (e) => {
