@@ -24,7 +24,7 @@ const CategoryList = () => {
           </Button>
         </li>
       ))}
-      <Button>Add Category</Button>
+      <Button>+</Button>
     </ul>
   );
 };
